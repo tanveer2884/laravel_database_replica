@@ -18,51 +18,51 @@ copy docker folder as .docker
 `cp -r docker .dokcer`
 change .env file in .docker. add your project name, and other ports 
 
-COMPOSE_PROJECT_NAME=
-HTTP_PORT=
-HTTPS_PORT=
-MYSQL_PORT=
-MYSQL_PORT_REPLICA=
+COMPOSE_PROJECT_NAME= <br>
+HTTP_PORT= <br>
+HTTPS_PORT= <br>
+MYSQL_PORT= <br>
+MYSQL_PORT_REPLICA= <br>
 
-MYSQL_DATABASE=
-MYSQL_ROOT_PASSWORD=
-REDIS_PASSWORD=
+MYSQL_DATABASE= <br>
+MYSQL_ROOT_PASSWORD= <br>
+REDIS_PASSWORD= <br>
 
 # Setup db replica
 in .docker -> docker-compose.yml add following lines. This will excute mysql service as replica
 
  #MySQL reblica Service <br>
-  db_replica:
-    image: mysql:5.7.32
-    container_name: ${COMPOSE_PROJECT_NAME}_db_replica
-    restart: unless-stopped
-    tty: true
-    volumes:
-      - ./.mysql_replica:/var/lib/mysql
-    ports:
-      - "${MYSQL_PORT_REPLICA}:3306"
-    environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      SERVICE_TAGS: dev
-      SERVICE_NAME: ${COMPOSE_PROJECT_NAME}_db_replica
-    networks:
-      - app-network
+  db_replica: <br>
+    image: mysql:5.7.32 <br>
+    container_name: ${COMPOSE_PROJECT_NAME}_db_replica <br>
+    restart: unless-stopped <br>
+    tty: true <br>
+    volumes: <br>
+      - ./.mysql_replica:/var/lib/mysql <br>
+    ports: <br>
+      - "${MYSQL_PORT_REPLICA}:3306" <br>
+    environment: <br>
+      MYSQL_DATABASE: ${MYSQL_DATABASE} <br>
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} <br>
+      SERVICE_TAGS: dev <br>
+      SERVICE_NAME: ${COMPOSE_PROJECT_NAME}_db_replica <br>
+    networks: <br>
+      - app-network <br>
 
 # setup .env varable
 
-DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=gfp
-DB_USERNAME=root
-DB_PASSWORD=root
+DB_CONNECTION=mysql <br>
+DB_HOST=db <br>
+DB_PORT=3306 <br>
+DB_DATABASE=gfp <br>
+DB_USERNAME=root <br>
+DB_PASSWORD=root <br>
 
-DB_HOST_REPLICA=db_replica
-DB_PORT_REPLICA=3306
-DB_DATABASE_REPLICA=gfp
-DB_USERNAME_REPLICA=root
-DB_PASSWORD_REPLICA=root
+DB_HOST_REPLICA=db_replica <br>
+DB_PORT_REPLICA=3306 <br>
+DB_DATABASE_REPLICA=gfp <br>
+DB_USERNAME_REPLICA=root <br>
+DB_PASSWORD_REPLICA=root <br>
 
 # Setup database config
 
