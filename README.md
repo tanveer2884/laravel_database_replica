@@ -31,7 +31,7 @@ REDIS_PASSWORD=
 # Setup db replica
 in .docker -> docker-compose.yml add following lines. This will excute mysql service as replica
 
- #MySQL reblica Service
+ #MySQL reblica Service <br>
   db_replica:
     image: mysql:5.7.32
     container_name: ${COMPOSE_PROJECT_NAME}_db_replica
@@ -66,51 +66,51 @@ DB_PASSWORD_REPLICA=root
 
 # Setup database config
 
- 'mysql' => [
-            'driver' => 'mysql',
-            'read' => [
-                'host' => env('DB_HOST_REPLICA', '127.0.0.1'),
-            ],
-            'write' => [
-                'host' => env('DB_HOST', '127.0.0.1'),
-            ],
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'strict' => true,
-            'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
-        ],
-
-        'mysql_replica' => [
-            'driver' => 'mysql',
-            'url' => env('DATABASE_URL'),
+    'mysql' => [
+        'driver' => 'mysql',
+        'read' => [
             'host' => env('DB_HOST_REPLICA', '127.0.0.1'),
-            'port' => env('DB_PORT_REPLICA', '3306'),
-            'database' => env('DB_DATABASE_REPLICA', 'forge'),
-            'username' => env('DB_USERNAME_REPLICA', 'forge'),
-            'password' => env('DB_PASSWORD_REPLICA', ''),
-            'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'strict' => true,
-            'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
         ],
+        'write' => [
+            'host' => env('DB_HOST', '127.0.0.1'),
+        ],
+        'url' => env('DATABASE_URL'),
+        'host' => env('DB_HOST', '127.0.0.1'),
+        'port' => env('DB_PORT', '3306'),
+        'database' => env('DB_DATABASE', 'forge'),
+        'username' => env('DB_USERNAME', 'forge'),
+        'password' => env('DB_PASSWORD', ''),
+        'unix_socket' => env('DB_SOCKET', ''),
+        'charset' => 'utf8mb4',
+        'collation' => 'utf8mb4_unicode_ci',
+        'prefix' => '',
+        'prefix_indexes' => true,
+        'strict' => true,
+        'engine' => null,
+        'options' => extension_loaded('pdo_mysql') ? array_filter([
+            PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+        ]) : [],
+    ],
+
+    'mysql_replica' => [
+        'driver' => 'mysql',
+        'url' => env('DATABASE_URL'),
+        'host' => env('DB_HOST_REPLICA', '127.0.0.1'),
+        'port' => env('DB_PORT_REPLICA', '3306'),
+        'database' => env('DB_DATABASE_REPLICA', 'forge'),
+        'username' => env('DB_USERNAME_REPLICA', 'forge'),
+        'password' => env('DB_PASSWORD_REPLICA', ''),
+        'unix_socket' => env('DB_SOCKET', ''),
+        'charset' => 'utf8mb4',
+        'collation' => 'utf8mb4_unicode_ci',
+        'prefix' => '',
+        'prefix_indexes' => true,
+        'strict' => true,
+        'engine' => null,
+        'options' => extension_loaded('pdo_mysql') ? array_filter([
+            PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+        ]) : [],
+    ],
 
 # Run docker command
 
