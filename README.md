@@ -31,23 +31,23 @@ REDIS_PASSWORD= <br>
 # Setup db replica
 in .docker -> docker-compose.yml add following lines. This will excute mysql service as replica
 
- #MySQL reblica Service <br>
-  db_replica: <br>
-    image: mysql:5.7.32 <br>
-    container_name: ${COMPOSE_PROJECT_NAME}_db_replica <br>
-    restart: unless-stopped <br>
-    tty: true <br>
-    volumes: <br>
-      - ./.mysql_replica:/var/lib/mysql <br>
-    ports: <br>
-      - "${MYSQL_PORT_REPLICA}:3306" <br>
-    environment: <br>
-      MYSQL_DATABASE: ${MYSQL_DATABASE} <br>
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} <br>
-      SERVICE_TAGS: dev <br>
-      SERVICE_NAME: ${COMPOSE_PROJECT_NAME}_db_replica <br>
-    networks: <br>
-      - app-network <br>
+ '#MySQL reblica Service <br>
+    db_replica: <br>
+        image: mysql:5.7.32 <br>
+        container_name: ${COMPOSE_PROJECT_NAME}_db_replica <br>
+        restart: unless-stopped <br>
+        tty: true <br>
+        volumes: <br>
+        - ./.mysql_replica:/var/lib/mysql <br>
+        ports: <br>
+        - "${MYSQL_PORT_REPLICA}:3306" <br>
+        environment: <br>
+        MYSQL_DATABASE: ${MYSQL_DATABASE} <br>
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} <br>
+        SERVICE_TAGS: dev <br>
+        SERVICE_NAME: ${COMPOSE_PROJECT_NAME}_db_replica <br>
+        networks: <br>
+        - app-network <br>'
 
 # setup .env varable
 
