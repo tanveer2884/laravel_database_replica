@@ -1,0 +1,24 @@
+app:
+  primary_host: 127.0.0.1
+  secondary_host: host.docker.internal
+  port: 8083
+  workdir: /var/www/html/
+  project_path: /var/www/gfp/
+config:
+  sleep: 0
+  color_in_screen: false
+  docker: false
+observers:
+  dump: true
+  original_dump: false
+  queries: false
+  mail: false
+  logs_applications: false
+  logs_vendor: false
+  logs_deprecated: false
+  http: false
+  jobs: false
+  commands: false
+  scheduled_commands: false
+  gate: false
+  cache: false

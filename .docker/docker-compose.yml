@@ -58,6 +58,23 @@ services:
     networks:
       - app-network
 
+  #MySQL reblica Service
+  db_replica:
+    image: mysql:5.7.32
+    container_name: ${COMPOSE_PROJECT_NAME}_db_replica
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./.mysql_replica:/var/lib/mysql
+    ports:
+      - "${MYSQL_PORT_REPLICA}:3306"
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: ${COMPOSE_PROJECT_NAME}_db_replica
+    networks:
+      - app-network
 
 #Docker Networks
 networks:

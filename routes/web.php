@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    ds('Home page accessed!');
     return view('welcome');
 });

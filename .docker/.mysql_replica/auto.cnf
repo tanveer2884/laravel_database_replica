@@ -1,0 +1,5 @@
+[auto]
+server-uuid=88fb0f4e-3f58-11ef-9cd8-0242ac120001
+[mysqld]
+server-id = 2
+relay-log = mysql-relay-bin
